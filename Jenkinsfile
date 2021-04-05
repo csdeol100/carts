@@ -29,5 +29,10 @@ pipeline {
           archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
         }
       }
+      stage('Build Image'){
+        steps{
+          sh "docker image build . -t csdeol100/carts:v1"
+        }
+      }
     }
 }
